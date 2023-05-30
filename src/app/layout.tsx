@@ -1,5 +1,9 @@
+'use client'
+
+import { Copyright } from '@/components/Copyright'
 import './globals.css'
 import { Montserrat } from 'next/font/google'
+import { FavoritosProvider } from '@/contexts/favoritosCtx'
 
 const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' })
 
@@ -17,7 +21,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body className={montserrat.className}>{children}</body>
+      <body className={montserrat.className}>
+        <FavoritosProvider>{children}</FavoritosProvider>
+      </body>
+
+
     </html>
   )
 }
